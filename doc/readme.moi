@@ -43,7 +43,7 @@ Generate icon grid and sets of individual icons with \m {\command {icons}}.  It 
 
 With \m {--buildings isometric} or \m {--buildings isometric-no-parts} (not set by default), buildings are drawn using isometric shapes for walls and shade in proportion to \osm {building:levels}, \osm {building:min_level}, \osm {height}, and \osm {min_height} values.
 
-\image {doc/buildings.png} {3D buildings}
+\image {doc/buildings.svg} {3D buildings}
 
 \3 {Road lanes} {road-lanes}
 
