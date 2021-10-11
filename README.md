@@ -35,7 +35,7 @@ All icons tend to support a common design style, which is heavily inspired by [M
 
 Icons are used to visualize tags for nodes and areas. Unlike other renderers, Map Machine can use more than one icon to visualize an entity and use colors to visualize [`colour`](https://wiki.openstreetmap.org/wiki/Key:colour) value or other entity properties (like [`material`](https://wiki.openstreetmap.org/wiki/Key:material) or [`genus`](https://wiki.openstreetmap.org/wiki/Key:genus)).
 
-![Icons](doc/grid.png)
+![Icons](doc/grid.svg)
 
 Feel free to request new icons via issues for whatever you want to see on the map. No matter how frequently the tag is used in OpenStreetMap since the final goal is to cover all tags. However, commonly used tags have priority, other things being equal.
 
