@@ -104,7 +104,7 @@ class Tile:
         cache_file_path: Path = (
             cache_path / f"{self.get_extended_boundary_box().get_format()}.osm"
         )
-        get_osm(self.get_extended_boundary_box(), cache_file_path)
+        get_osm(self.get_extended_boundary_box(), cache_file_path, proxy=proxy)
 
         osm_data: OSMData = OSMData()
         osm_data.parse_osm_file(cache_file_path)
@@ -256,7 +256,7 @@ class Tiles:
         cache_file_path: Path = (
             cache_path / f"{self.boundary_box.get_format()}.osm"
         )
-        get_osm(self.boundary_box, cache_file_path)
+        get_osm(self.boundary_box, cache_file_path, proxy=proxy)
 
         osm_data: OSMData = OSMData()
         osm_data.parse_osm_file(cache_file_path)

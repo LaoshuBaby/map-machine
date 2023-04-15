@@ -22,7 +22,7 @@ class NetworkError(Exception):
 
 
 def get_osm(
-    boundary_box: BoundaryBox, cache_file_path: Path, to_update: bool = False
+    boundary_box: BoundaryBox, cache_file_path: Path, to_update: bool = False, proxy = None
 ) -> str:
     """
     Download OSM data from the web or get if from the cache.
@@ -30,6 +30,7 @@ def get_osm(
     :param boundary_box: borders of the map part to download
     :param cache_file_path: cache file to store downloaded OSM data
     :param to_update: update cache files
+    :param proxy: specify proxy used while downloading
     """
     if not to_update and cache_file_path.is_file():
         with cache_file_path.open(encoding="utf-8") as output_file:
