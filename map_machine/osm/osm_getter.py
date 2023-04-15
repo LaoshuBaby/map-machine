@@ -59,20 +59,27 @@ def get_osm(
     return content.decode("utf-8")
 
 
-def get_data(address: str, parameters: dict[str, str]) -> bytes:
+def get_data(address: str, parameters: dict[str, str], proxy_url: str = None) -> bytes:
     """
     Construct Internet page URL and get its descriptor.
 
     :param address: URL without parameters
     :param parameters: URL parameters
+    :param proxy_url: Optional proxy URL in the form 'https://address:port'
     :return: connection descriptor
     """
     logging.info(f"Getting {address}...")
-    pool_manager: urllib3.PoolManager = urllib3.PoolManager()
+
+    if proxy_url:
+        proxy = urllib3.ProxyManager(proxy_url)
+        pool_manager = proxy
+    else:
+        pool_manager: urllib3.PoolManager = urllib3.PoolManager()
+
     urllib3.disable_warnings()
 
     try:
-        result = pool_manager.request("GET", address, parameters)
+        result = pool_manager.request("GET", address, fields=parameters)
     except urllib3.exceptions.MaxRetryError:
         raise NetworkError("Cannot download data: too many attempts.")
 
